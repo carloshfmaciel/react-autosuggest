@@ -7,10 +7,7 @@ import parse from 'autosuggest-highlight/parse';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
-import Popper from '@material-ui/core/Popper';
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import Button from '@material-ui/core/Button';
 import './style.scss';
 import $ from 'jquery';
 
@@ -123,14 +120,15 @@ const styles = theme => ({
     height: 250,
     flexGrow: 1
   },
-  searchIcon: {
-    color: 'grey'
-  },
   container: {
     position: 'relative',
     boxSizing: 'border-box',
     margin: '0 auto',
     width: '50%'
+  },
+  input: {
+    fontSize: '1rem',
+    color: 'grey'
   },
   suggestionsContainerOpen: {
     position: 'absolute',
@@ -180,6 +178,7 @@ class IntegrationAutosuggest extends React.Component {
   };
 
   componentDidMount() {
+    // ADD ICON AND SEARCH BUTTON BY JQUERY
     const searchIcon =
       '<svg class="MuiSvgIcon-root-7" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg>';
     const searchButton = '<Button class="searchButton">Buscar</Button>';
@@ -200,9 +199,8 @@ class IntegrationAutosuggest extends React.Component {
     };
 
     return (
-      <div className={classes.root}>
+      <div id="searchBox" className={classes.root}>
         <Autosuggest
-          classes={'MuiInput-underline-15'}
           {...autosuggestProps}
           inputProps={{
             classes,
@@ -220,40 +218,6 @@ class IntegrationAutosuggest extends React.Component {
             <Paper {...options.containerProps} square>
               {options.children}
             </Paper>
-          )}
-        />
-        <div className={classes.divider} />
-        <Autosuggest
-          {...autosuggestProps}
-          inputProps={{
-            classes,
-            label: 'Label',
-            placeholder: 'With Popper',
-            value: this.state.popper,
-            onChange: this.handleChange('popper'),
-            inputRef: node => {
-              this.popperNode = node;
-            },
-            InputLabelProps: {
-              shrink: true
-            }
-          }}
-          theme={{
-            suggestionsList: classes.suggestionsList,
-            suggestion: classes.suggestion
-          }}
-          renderSuggestionsContainer={options => (
-            <Popper anchorEl={this.popperNode} open={Boolean(options.children)}>
-              <Paper
-                square
-                {...options.containerProps}
-                style={{
-                  width: this.popperNode ? this.popperNode.clientWidth : null
-                }}
-              >
-                {options.children}
-              </Paper>
-            </Popper>
           )}
         />
       </div>

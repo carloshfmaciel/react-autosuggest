@@ -1,30 +1,26 @@
-[class*='MuiInput-underline'] {
+/* Input Text da SearchBox */
+#searchBox [class*='MuiInput-underline'] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-[class*='MuiInput-underline']::before {
+#searchBox [class*='MuiInput-underline']::before {
   transition: none !important;
   border-bottom: none !important;
 }
 
-[class*='MuiInput-underline']::after {
+#searchBox [class*='MuiInput-underline']::after {
   transition: none !important;
   border-bottom: none !important;
 }
 
-[class*='MuiInputBase-input'] {
+#searchBox [class*='MuiInputBase-input'] {
   padding: 7px 7px 7px 40px !important;
   border-color: #ccc !important;
 }
 
-.iconSearch {
-  position: absolute;
-  padding-bottom: 4px;
-  padding-left: 3px;
-}
-
-.MuiSvgIcon-root-7 {
+/* Icone da Lupa */
+#searchBox .MuiSvgIcon-root-7 {
   position: absolute !important;
   width: 30px;
   height: 30px;
@@ -33,7 +29,8 @@
   fill: grey;
 }
 
-.searchButton {
+/* Botao Buscar */
+#searchBox .searchButton {
   background-color: #ec660b;
   border: 0;
   margin: 0;
