@@ -1,3 +1,8 @@
+Exemplo com ícone da Lupa e botão Buscar
+
+![alt text](https://github.com/carloshfmaciel/react-autosuggest/blob/master/screenshot.PNG)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
