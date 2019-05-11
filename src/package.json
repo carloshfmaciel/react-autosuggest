@@ -1,5 +1,15 @@
 {
   "title": "Material demo",
+  "scripts": {
+    "eslint": "eslint --fix",
+    "test": "jest",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "start": "webpack-dev-server --config webpack.config.dev.js --progress --colors --open --hot --inline --watch ",
+    "build": "rm -rf build && webpack --config webpack.config.prod.js --optimize-minimize --progress -p",
+    "unused": "webpack --config webpack.config.prod.js --json | webpack-unused -s src",
+    "stats": "rm -rf build && webpack --config webpack.config.stats.js --optimize-minimize --progress -p"
+  },
   "devDependencies": {
     "react-scripts": "latest"
   },
