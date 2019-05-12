@@ -1,36 +1,18 @@
-/* Input Text da SearchBox */
-#searchBox [class*='MuiInput-underline'] {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#searchBox [class*='MuiInput-underline']::before {
-  transition: none !important;
-  border-bottom: none !important;
-}
-
-#searchBox [class*='MuiInput-underline']::after {
-  transition: none !important;
-  border-bottom: none !important;
-}
-
-#searchBox [class*='MuiInputBase-input'] {
-  padding: 7px 7px 7px 40px !important;
-  border-color: #ccc !important;
-}
-
 /* Icone da Lupa */
-#searchBox .MuiSvgIcon-root-7 {
+#searchBox svg {
   position: absolute !important;
   width: 30px;
   height: 30px;
-  padding-bottom: 2px;
+  padding-top: 2px;
   padding-left: 5px;
   fill: grey;
+  left: 0;
 }
 
 /* Botao Buscar */
 #searchBox .searchButton {
+  position: absolute;
+  right: 0;
   background-color: #ec660b;
   border: 0;
   margin: 0;

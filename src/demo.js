@@ -52,19 +52,22 @@ function renderInputComponent(inputProps) {
   const { classes, inputRef = () => {}, ref, ...other } = inputProps;
 
   return (
-    <TextField
-      fullWidth
-      InputProps={{
-        inputRef: node => {
-          ref(node);
-          inputRef(node);
-        },
-        classes: {
-          input: classes.input
-        }
-      }}
-      {...other}
-    />
+    <div id="inputSearchBox">
+      <TextField
+        fullWidth
+        InputProps={{
+          inputRef: node => {
+            ref(node);
+            inputRef(node);
+          },
+          disableUnderline: true,
+          classes: {
+            input: classes.input
+          }
+        }}
+        {...other}
+      />
+    </div>
   );
 }
 
@@ -127,8 +130,9 @@ const styles = theme => ({
     width: '50%'
   },
   input: {
-    fontSize: '1rem',
-    color: 'grey'
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    padding: '7px 7px 7px 40px !important'
   },
   suggestionsContainerOpen: {
     position: 'absolute',
@@ -183,7 +187,7 @@ class IntegrationAutosuggest extends React.Component {
       '<svg class="MuiSvgIcon-root-7" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg>';
     const searchButton = '<Button class="searchButton">Buscar</Button>';
 
-    $('[class*=MuiInput-underline]').append(searchIcon + searchButton);
+    $('#inputSearchBox').append(searchIcon + searchButton);
   }
 
   render() {
